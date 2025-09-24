@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>PetStore - Tienda de mascotas (Demo integrado)</title>
+  <meta name="description" content="PetStore: alimentos, accesorios y servicios para tu mascota. Compra online y recoge en tienda.">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header role="banner">
+    <div class="container topbar">
+      <div class="brand" aria-label="PetStore">
+        <div class="logo" aria-hidden="true">PS</div>
+        <div>
+          <div style="font-weight:700">PetStore</div>
+          <div class="muted" style="font-size:0.9rem">Tu tienda de mascotas</div>
+        </div>
+      </div>
+
+      <nav role="navigation" aria-label="Menú principal">
+        <ul>
+          <li><a href="index.html" class="active">Inicio</a></li>
+          <li><a href="products.html">Productos</a></li>
+          <li><a href="services.html">Servicios</a></li>
+          <li><a href="about.html">Sobre nosotros</a></li>
+          <li><a href="contact.html">Contacto</a></li>
+        </ul>
+      </nav>
+
+      <div style="display:flex;gap:10px;align-items:center">
+        <button class="link-like" aria-label="Ver carrito" id="toggle-cart">Carrito (0)</button>
+        <a href="#" class="muted">Mi cuenta</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container" id="home">
+    <section class="hero">
+      <div class="hero-card">
+        <h1>Alimentos y accesorios para tu mascota</h1>
+        <p class="muted">Envío a domicilio. Recogida en tienda. Productos seleccionados por expert@s.</p>
+
+        <div class="search" role="search" aria-label="Buscar productos">
+          <input id="search" placeholder="Buscar por producto o categoría" aria-label="Buscar productos">
+          <button class="btn" id="search-btn">Buscar</button>
+        </div>
+
+        <div class="categories" aria-hidden="false">
+          <div class="cat">Perros</div>
+          <div class="cat">Gatos</div>
+          <div class="cat">Pájaros</div>
+        </div>
+
+        <h3 style="margin-top:14px">Ofertas destacadas</h3>
+        <div class="grid" id="featured"></div>
+      </div>
+
+      <aside>
+        <div class="hero-card" style="margin-bottom:12px">
+          <h3>Promoción</h3>
+          <p class="muted">10% de descuento en tu primera compra con el código <strong>PET10</strong>.</p>
+          <img src="images/promo.png" alt="Perro feliz" style="width:100%;border-radius:8px;margin-top:8px">
+        </div>
+
+        <div class="hero-card">
+          <h4>Servicios</h4>
+          <ul class="muted">
+            <li>Peluquería</li>
+            <li>Baño y cepillado</li>
+            <li>Consulta nutricional</li>
+          </ul>
+        </div>
+      </aside>
+    </section>
+
+    <section id="products" aria-labelledby="products-title">
+      <h2 id="products-title">Productos</h2>
+      <p class="muted">Categorías, filtros y productos destacados.</p>
+      <div class="grid" id="products-grid"></div>
+    </section>
+
+    <section id="services" style="margin-top:24px">
+      <h2>Servicios</h2>
+      <div class="grid">
+        <div class="card">
+          <h4>Peluquería</h4>
+          <p class="muted">Corte, baño y mantenimiento para todas las razas.</p>
+        </div>
+        <div class="card">
+          <h4>Consulta nutricional</h4>
+          <p class="muted">Planes de alimentación personalizados.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" style="margin-top:24px">
+      <h2>Sobre nosotros</h2>
+      <div class="card" style="display:flex;gap:12px;align-items:center">
+        <img src="images/equipo.png" alt="Equipo PetStore" style="width:120px;height:120px;object-fit:cover;border-radius:8px">
+        <div>
+          <p>PetStore nace en 2025 con la misión de ofrecer productos de calidad y asesoría experta para dueños de mascotas. Atención personalizada y compromiso con el bienestar animal.</p>
+          <p class="muted">Dirección: Calle Ejemplo 123. Horario: L-V 9:00-18:00.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="blog" style="margin-top:24px">
+      <h2>Blog</h2>
+      <p class="muted">Artículos útiles para dueños de mascotas.</p>
+      <div class="blog-list" id="blog-list"></div>
+    </section>
+
+    <section id="contact" style="margin-top:24px">
+      <h2>Contacto</h2>
+      <div class="card" style="display:flex;gap:12px;flex-wrap:wrap">
+        <form id="contact-form" style="flex:1;min-width:260px">
+          <label for="name">Nombre</label><br>
+          <input id="name" required style="width:100%;padding:8px;margin:6px 0;border-radius:6px;border:1px solid #e6e0d8">
+          <label for="email">Correo</label><br>
+          <input id="email" type="email" required style="width:100%;padding:8px;margin:6px 0;border-radius:6px;border:1px solid #e6e0d8">
+          <label for="message">Mensaje</label><br>
+          <textarea id="message" rows="4" style="width:100%;padding:8px;margin:6px 0;border-radius:6px;border:1px solid #e6e0d8"></textarea>
+          <button class="btn" type="submit">Enviar</button>
+        </form>
+
+        <div style="min-width:220px">
+          <p class="muted">Tel: +57 300 000 0000</p>
+          <p class="muted">Email: contacto@petstore.com</p>
+          <div>
+            <a href="#" aria-label="Instagram">Instagram</a> · <a href="#" aria-label="Facebook">Facebook</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-grid">
+      <div>
+        <strong>PetStore</strong>
+        <p class="muted">Calidad y cuidado para tus mascotas.</p>
+      </div>
+      <div>
+        <h4>Enlaces</h4>
+        <ul class="muted">
+          <li><a href="products.html">Productos</a></li>
+          <li><a href="services.html">Servicios</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Legal</h4>
+        <ul class="muted">
+          <li><a href="#">Política de privacidad</a></li>
+          <li><a href="#">Términos y condiciones</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <div id="cart" class="cart-panel" aria-hidden="true" style="display:none">
+    <h4>Carrito</h4>
+    <div id="cart-items"></div>
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-top:8px">
+      <strong id="cart-total">Total: $0</strong>
+      <button class="btn" id="checkout-btn">Pagar</button>
+    </div>
+    <div style="font-size:0.8rem;color:var(--muted);margin-top:8px">Pago demo: el checkout enlaza a un ejemplo. Reemplaza con Stripe/PayPal para producción.</div>
+  </div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
