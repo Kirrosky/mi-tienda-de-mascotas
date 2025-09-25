@@ -1,133 +1,95 @@
-/* ====== Reset básico ====== */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+/* Reset básico */
 body {
+  margin: 0;
   font-family: Arial, sans-serif;
   line-height: 1.6;
-  background: #f9f9f9;
   color: #333;
-}
-a { text-decoration: none; color: inherit; }
-
-/* ====== Header ====== */
-header {
-  background: #2d6cdf;
-  color: #fff;
-  padding: 15px 0;
-  margin-bottom: 20px;
-}
-.topbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.topbar nav ul {
-  display: flex;
-  gap: 15px;
-  list-style: none;
-}
-.topbar nav a {
-  color: #fff;
-  font-weight: 500;
-}
-.topbar nav a.active {
-  text-decoration: underline;
+  background: #f9f9f9;
 }
 
-/* ====== Layout ====== */
 .container {
   width: 90%;
   max-width: 1200px;
   margin: auto;
 }
+
+header {
+  background: #222;
+  color: white;
+  padding: 10px 0;
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.topbar nav ul {
+  list-style: none;
+  display: flex;
+  gap: 15px;
+  padding: 0;
+  margin: 0;
+}
+
+.topbar nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.topbar nav a.active {
+  border-bottom: 2px solid #ff9800;
+}
+
+.logo {
+  background: #ff9800;
+  color: #fff;
+  font-weight: bold;
+  padding: 10px;
+  border-radius: 50%;
+}
+
+.hero {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.hero-img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 20px;
+  margin-top: 20px;
 }
 
-/* ====== Cards de productos ====== */
+.grid.featured {
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
 .card {
-  background: #fff;
-  border-radius: 10px;
+  background: white;
   padding: 15px;
+  border-radius: 8px;
   text-align: center;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  transition: transform 0.2s;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
-.card:hover {
-  transform: scale(1.03);
-}
+
 .card img {
   max-width: 100%;
-  border-radius: 8px;
-}
-.card h3 {
-  margin: 10px 0;
+  height: auto;
+  border-radius: 5px;
 }
 
-/* ====== Botones ====== */
-.btn {
-  background: #2d6cdf;
-  color: #fff;
-  padding: 6px 12px;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background 0.2s;
-}
-.btn:hover { background: #1e4ca0; }
-.btn.small { padding: 4px 8px; font-size: 0.9rem; }
-.btn.danger { background: #d9534f; }
-.btn.danger:hover { background: #b52b27; }
-
-/* ====== Inputs ====== */
-.input {
-  padding: 6px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  flex: 1;
-}
-
-/* ====== Admin panel ====== */
-#admin-panel {
-  display: none; /* oculto por defecto */
-  background: #fff;
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  padding: 15px;
-  margin-bottom: 20px;
-}
-#admin-panel.show {
-  display: block;
-}
-.admin-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-bottom: 12px;
-}
-
-/* ====== Servicios ====== */
-.service-card {
-  background: #eef;
-  padding: 10px;
-  border-radius: 8px;
-  margin-bottom: 10px;
-}
-
-/* ====== Footer ====== */
 footer {
-  background: #2d6cdf;
-  color: #fff;
-  padding: 20px;
-  margin-top: 40px;
+  background: #222;
+  color: white;
   text-align: center;
-}
-.muted {
-  color: #777;
-  font-size: 0.9rem;
+  padding: 15px 0;
+  margin-top: 40px;
 }
