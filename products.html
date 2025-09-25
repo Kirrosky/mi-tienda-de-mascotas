@@ -14,6 +14,37 @@
   </div>
 </header>
 <main class="container">
+  <!-- Admin panel (visible to admin only; hide in production if needed) -->
+<section class="container admin-panel" id="admin-panel">
+  <h3>Administración rápida</h3>
+
+  <div>
+    <strong>Renombrar tienda</strong>
+    <div><button class="btn" onclick="enableStoreRename()">Cambiar nombre</button></div>
+  </div>
+
+  <hr>
+
+  <h4>Agregar / Editar producto</h4>
+  <div class="admin-row">
+    <input id="admin-prod-title" class="input" placeholder="Título">
+    <input id="admin-prod-price" class="input" placeholder="Precio" type="number">
+    <input id="admin-prod-cat" class="input" placeholder="Categoría">
+    <input id="admin-prod-img" class="input" placeholder="Ruta imagen (images/...)">
+    <button id="admin-save-btn" class="btn" onclick="saveEdit()">Agregar producto</button>
+  </div>
+
+  <h4>Servicios</h4>
+  <div id="services-list"></div>
+
+  <div style="margin-top:8px" class="admin-row">
+    <input id="svc-name" class="input" placeholder="Nombre servicio">
+    <input id="svc-contact" class="input" placeholder="Contacto (tel/email)">
+    <input id="svc-notes" class="input" placeholder="Notas / dirección">
+    <button id="svc-save-btn" class="btn" onclick="saveService()">Agregar servicio</button>
+  </div>
+</section>
+
   <h1>Productos</h1>
   <div class="grid" id="products-grid"></div>
 </main>
