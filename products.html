@@ -3,48 +3,84 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Productos - PetStore</title>
+  <title>Productos | PetStore</title>
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="images/equipo.png">
+  <!-- CSS -->
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-<header role="banner">
-  <div class="container topbar">
-    <div class="brand">
-      <div class="logo">PS</div>
-      <div>
-        <div style="font-weight:700">PetStore</div>
-        <div class="muted" style="font-size:0.9rem">Tu tienda de mascotas</div>
+  <!-- HEADER -->
+  <header role="banner">
+    <div class="container topbar">
+      <div class="brand">
+        <div class="logo">PS</div>
+        <div>
+          <div style="font-weight:700">PetStore</div>
+          <div class="muted" style="font-size:0.9rem">Tu tienda de mascotas</div>
+        </div>
+      </div>
+      <nav role="navigation">
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="products.html" class="active">Productos</a></li>
+          <li><a href="services.html">Servicios</a></li>
+          <li><a href="about.html">Sobre nosotros</a></li>
+          <li><a href="contact.html">Contacto</a></li>
+          <li><a href="blog.html">Blog</a></li>
+        </ul>
+      </nav>
+      <div style="display:flex;gap:10px;align-items:center">
+        <button id="toggle-cart" class="link-like">Carrito (0)</button>
       </div>
     </div>
-    <nav role="navigation">
-      <ul>
-        <li><a href="index.html">Inicio</a></li>
-        <li><a href="products.html" class="active">Productos</a></li>
-        <li><a href="services.html">Servicios</a></li>
-        <li><a href="about.html">Sobre nosotros</a></li>
-        <li><a href="contact.html">Contacto</a></li>
-      </ul>
-    </nav>
-    <div style="display:flex;gap:10px;align-items:center">
-      <button id="toggle-cart" class="link-like">Carrito (0)</button>
+  </header>
+
+  <!-- MAIN -->
+  <main class="container">
+    <!-- Admin panel (visible solo para gestión; puedes ocultarlo en producción) -->
+    <section class="container admin-panel" id="admin-panel">
+      <h3>Administración de productos</h3>
+
+      <div>
+        <strong>Renombrar tienda</strong>
+        <div>
+          <button class="btn" onclick="enableStoreRename()">Cambiar nombre</button>
+        </div>
+      </div>
+
+      <hr>
+
+      <h4>Agregar / Editar producto</h4>
+      <div class="admin-row">
+        <input id="admin-prod-title" class="input" placeholder="Título">
+        <input id="admin-prod-price" class="input" placeholder="Precio" type="number">
+        <input id="admin-prod-cat" class="input" placeholder="Categoría">
+        <input id="admin-prod-img" class="input" placeholder="Ruta imagen (images/...)">
+        <button id="admin-save-btn" class="btn" onclick="saveEdit()">Agregar producto</button>
+      </div>
+    </section>
+
+    <!-- Productos -->
+    <h1>Productos</h1>
+    <div class="grid" id="products-grid"></div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container footer-grid">
+      <div>
+        <strong>PetStore</strong>
+        <p class="muted">Calidad y cuidado para tus mascotas.</p>
+      </div>
+      <div>
+        <p>&copy; 2025 PetStore. Todos los derechos reservados.</p>
+      </div>
     </div>
-  </div>
-</header>
+  </footer>
 
-<main class="container">
-  <h1>Productos</h1>
-  <div class="grid" id="products-grid"></div>
-</main>
-
-<footer>
-  <div class="container footer-grid">
-    <div>
-      <strong>PetStore</strong>
-      <p class="muted">Calidad y cuidado para tus mascotas.</p>
-    </div>
-  </div>
-</footer>
-
-<script src="js/app.js" defer></script>
+  <!-- JS -->
+  <script src="js/app.js"></script>
 </body>
 </html>
+
