@@ -1,6 +1,17 @@
 /* =======================
-   1. RESET BÁSICO
+   1. RESET + VARIABLES
 ======================= */
+:root {
+  --bg: #fbf9f4;        /* fondo crema */
+  --accent: #e67e22;    /* naranja demo */
+  --muted: #6b6b6b;
+  --card: #ffffff;
+  --success: #2d9c6a;
+  --maxw: 1100px;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  color: #222;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -8,57 +19,78 @@
 }
 
 html, body {
-  font-family: Arial, Helvetica, sans-serif;
-  background: #fafafa;
-  color: #333;
+  background: var(--bg);
   line-height: 1.5;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 /* =======================
    2. LAYOUT GENERAL
 ======================= */
 .container {
-  width: 90%;
-  max-width: 1200px;
+  width: 95%;
+  max-width: var(--maxw);
   margin: 0 auto;
 }
 
-header, footer {
-  background: #fff;
-  border-bottom: 1px solid #ddd;
-  padding: 15px 0;
+header {
+  background: linear-gradient(90deg, #dff3e6 0%, #fbf9f4 100%);
+  border-bottom: 1px solid #ece8e1;
 }
 
 footer {
   border-top: 1px solid #ddd;
   margin-top: 40px;
   text-align: center;
+  background: #fff;
+  padding: 15px 0;
 }
 
 /* =======================
    3. NAVEGACIÓN
 ======================= */
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 0;
+}
+
 nav ul {
   list-style: none;
   display: flex;
   gap: 20px;
+  margin: 0;
+  padding: 0;
 }
 
 nav a {
   text-decoration: none;
   color: #333;
   font-weight: 500;
+  padding: 8px;
+  border-radius: 6px;
 }
 
-nav a.active {
-  color: #ff6600;
+nav a.active,
+nav a[aria-current="page"] {
+  background: var(--accent);
+  color: white;
 }
 
 /* =======================
    4. BRAND / LOGO
 ======================= */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
 .logo {
-  background: #ff6600;
+  background: var(--accent);
   color: #fff;
   font-weight: bold;
   font-size: 1.4rem;
@@ -66,29 +98,34 @@ nav a.active {
   border-radius: 8px;
   margin-right: 10px;
   display: inline-block;
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* =======================
    5. BOTONES
 ======================= */
 .btn {
-  background: #ff6600;
+  background: var(--accent);
   color: #fff;
   padding: 8px 14px;
   border: none;
-  border-radius: 6px;
+  border-radius: 8px;
   cursor: pointer;
   transition: background 0.3s;
 }
 
 .btn:hover {
-  background: #e05500;
+  background: #cf6415;
 }
 
 .link-like {
   background: none;
   border: none;
-  color: #ff6600;
+  color: var(--accent);
   cursor: pointer;
   text-decoration: underline;
   padding: 0;
@@ -105,7 +142,50 @@ nav a.active {
 }
 
 /* =======================
-   7. GRID DE PRODUCTOS
+   7. HERO + SECCIONES
+======================= */
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: 20px;
+  align-items: center;
+}
+
+.hero-card {
+  background: var(--card);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+}
+
+.search {
+  display: flex;
+  gap: 8px;
+}
+
+.search input {
+  flex: 1;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #e6e0d8;
+}
+
+.categories {
+  display: flex;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.cat {
+  background: #f6f6f6;
+  padding: 10px;
+  border-radius: 8px;
+  text-align: center;
+  flex: 1;
+}
+
+/* =======================
+   8. PRODUCTOS
 ======================= */
 .grid {
   display: grid;
@@ -115,11 +195,11 @@ nav a.active {
 }
 
 .product-card {
-  background: #fff;
+  background: var(--card);
   border: 1px solid #eee;
   border-radius: 10px;
   padding: 15px;
-  transition: transform 0.2s;
+  transition: transform 0.2s, box-shadow 0.2s;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -127,6 +207,7 @@ nav a.active {
 
 .product-card:hover {
   transform: translateY(-5px);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
 }
 
 .product-card img {
@@ -135,7 +216,7 @@ nav a.active {
 }
 
 /* =======================
-   8. ADMIN PANEL
+   9. ADMIN PANEL
 ======================= */
 .admin-panel {
   background: #fff3e6;
@@ -156,7 +237,7 @@ nav a.active {
 }
 
 /* =======================
-   9. SERVICIOS
+   10. SERVICIOS
 ======================= */
 .service-card {
   background: #fff;
@@ -164,18 +245,6 @@ nav a.active {
   padding: 15px;
   border-radius: 8px;
   margin-bottom: 10px;
-}
-
-/* =======================
-   10. ANIMACIONES
-======================= */
-.fade-in {
-  animation: fadeIn 0.5s ease-in forwards;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
 }
 
 /* =======================
@@ -194,8 +263,26 @@ nav a.active {
 }
 
 /* =======================
-   12. RESPONSIVE
+   12. ANIMACIONES
 ======================= */
+.fade-in {
+  animation: fadeIn 0.5s ease-in forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* =======================
+   13. RESPONSIVE
+======================= */
+@media (max-width: 900px) {
+  .hero {
+    grid-template-columns: 1fr;
+  }
+}
+
 @media (max-width: 768px) {
   nav ul {
     flex-direction: column;
