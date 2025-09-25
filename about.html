@@ -1,26 +1,53 @@
 <!doctype html>
 <html lang="es">
 <head>
-  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Sobre nosotros - PetStore</title>
+  <link rel="icon" type="image/png" href="images/equipo.png">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 <header role="banner">
   <div class="container topbar">
-    <div class="brand"><div class="logo">PS</div><div><div style="font-weight:700">PetStore</div><div class="muted" style="font-size:0.9rem">Tu tienda de mascotas</div></div></div>
-    <nav role="navigation"><ul><li><a href="index.html">Inicio</a></li><li><a href="products.html">Productos</a></li><li><a href="services.html">Servicios</a></li><li><a href="about.html" class="active">Sobre nosotros</a></li><li><a href="contact.html">Contacto</a></li></ul></nav>
-    <div style="display:flex;gap:10px;align-items:center"><button id="toggle-cart" class="link-like">Carrito (0)</button></div>
+    <div class="brand">
+      <div class="logo">PS</div>
+      <div>
+        <div style="font-weight:700">PetStore</div>
+        <div class="muted" style="font-size:0.9rem">Tu tienda de mascotas</div>
+      </div>
+    </div>
+    <nav role="navigation">
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="products.html">Productos</a></li>
+        <li><a href="services.html">Servicios</a></li>
+        <li><a href="about.html" class="active">Sobre nosotros</a></li>
+        <li><a href="contact.html">Contacto</a></li>
+      </ul>
+    </nav>
   </div>
 </header>
+
 <main class="container">
   <h1>Sobre nosotros</h1>
-  <div class="card" style="display:flex;gap:12px;align-items:center">
-    <img src="images/equipo.png" alt="Equipo PetStore" style="width:120px;height:120px;object-fit:cover;border-radius:8px">
-    <div><p>PetStore nace en 2025 con la misión de ofrecer productos de calidad y asesoría experta para dueños de mascotas.</p><p class="muted">Dirección: Calle Ejemplo 123. Horario: L-V 9:00-18:00.</p></div>
-  </div>
+  <section class="grid">
+    <article>
+      <img src="images/equipo.png" alt="Nuestro equipo">
+      <h2>Quiénes somos</h2>
+      <p>En <strong>PetStore</strong>, creemos que las mascotas son parte de la familia. 
+      Nuestro equipo está dedicado a ofrecer productos y servicios de alta calidad para que tus compañeros peludos, emplumados o escamosos vivan felices y saludables.</p>
+    </article>
+  </section>
 </main>
-<footer><div class="container footer-grid"><div><strong>PetStore</strong><p class="muted">Calidad y cuidado para tus mascotas.</p></div></div></footer>
-<script src="js/app.js"></script>
+
+<footer>
+  <div class="container footer-grid">
+    <div>
+      <strong>PetStore</strong>
+      <p class="muted">Calidad y cuidado para tus mascotas.</p>
+    </div>
+  </div>
+</footer>
 </body>
 </html>
