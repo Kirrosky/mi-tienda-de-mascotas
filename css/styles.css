@@ -1,383 +1,133 @@
-/* css/styles.css
-Paleta y estilos base para DracoStore / PetStore
-Reemplaza el archivo existente por este.
-*/
-
-/* ===== Variables ===== */
-:root {
-  --bg: #fbf9f4;              /* fondo general */
-  --accent: #e67e22;          /* naranja acento */
-  --muted: #6b6b6b;           /* texto secundario */
-  --card: #ffffff;            /* tarjetas */
-  --success: #2d9c6a;
-  --maxw: 1100px;
-  --transition: 260ms cubic-bezier(.2,.8,.2,1);
-  --radius: 10px;
-
-  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-  color: #222;
-}
-
-/* ===== Reset & Base ===== */
+/* ====== Reset básico ====== */
 * {
-  box-sizing: border-box;
-}
-
-html, body {
-  height: 100%;
-}
-
-body {
-  margin: 0;
-  background: var(--bg);
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-/* ===== Contenedor de diseño ===== */
-.container {
-  width: 95%;
-  max-width: var(--maxw);
-  margin: 0 auto;
-  padding: 12px;
-}
-
-/* ===== Encabezado / Navegación ===== */
-header {
-  background: linear-gradient(90deg, #dff3e6 0%, #fbf9f4 100%);
-  border-bottom: 1px solid #ece8e1;
-}
-
-.topbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  padding: 12px 0;
-}
-
-.brand {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.logo {
-  width: 52px;
-  height: 52px;
-  background: var(--card);
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 700;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
-}
-
-nav ul {
-  list-style: none;
-  display: flex;
-  gap: 10px;
   margin: 0;
   padding: 0;
-  align-items: center;
+  box-sizing: border-box;
 }
-
-nav a {
-  color: #1b1b1b;
-  text-decoration: none;
-  padding: 8px;
-  border-radius: 8px;
-  transition: background var(--transition), transform var(--transition);
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  background: #f9f9f9;
+  color: #333;
 }
+a { text-decoration: none; color: inherit; }
 
-nav a:hover {
-  background: rgba(230,126,34,0.10);
-  transform: translateY(-2px);
-}
-
-nav a.active {
-  background: var(--accent);
-  color: white;
-}
-
-/* ===== Hero / Búsqueda / Categorías ===== */
-.hero {
-  display: grid;
-  grid-template-columns: 1fr 420px;
-  gap: 20px;
-  align-items: center;
-  margin-top: 14px;
-}
-
-.hero-card {
-  background: var(--card);
-  padding: 20px;
-  border-radius: var(--radius);
-  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
-}
-
-.search {
-  display: flex;
-  gap: 8px;
-  margin-top: 10px;
-}
-
-.search input {
-  flex: 1;
-  padding: 10px;
-  border-radius: 8px;
-  border: 1px solid #e6e0d8;
-  outline: none;
-}
-
-.btn {
-  background: var(--accent);
+/* ====== Header ====== */
+header {
+  background: #2d6cdf;
   color: #fff;
-  padding: 10px 14px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: transform var(--transition), box-shadow var(--transition);
+  padding: 15px 0;
+  margin-bottom: 20px;
 }
-
-.btn:active {
-  transform: scale(.99);
-}
-
-.categories {
-  display: flex;
-  gap: 10px;
-  margin-top: 12px;
-}
-
-.cat {
-  background: #f6f6f6;
-  padding: 10px;
-  border-radius: 8px;
-  text-align: center;
-  flex: 1;
-  cursor: pointer;
-  transition: transform var(--transition), box-shadow var(--transition);
-}
-
-.cat:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.04);
-}
-
-/* ===== Cuadrícula / Cartas ===== */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 16px;
-  margin-top: 18px;
-}
-
-.card {
-  background: var(--card);
-  padding: 12px;
-  border-radius: 12px;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.04);
-  display: flex;
-  flex-direction: column;
-  transition: transform var(--transition), box-shadow var(--transition);
-}
-
-.card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 18px 40px rgba(0,0,0,0.08);
-}
-
-.card img {
-  width: 100%;
-  height: 160px;
-  object-fit: cover;
-  border-radius: 8px;
-}
-
-.card h4 {
-  margin: 10px 0 6px;
-  font-size: 1rem;
-}
-
-.price {
-  font-weight: 700;
-  color: var(--accent);
-}
-
-/* ===== Utilidades pequeñas ===== */
-.muted {
-  color: var(--muted);
-  font-size: 0.9rem;
-}
-
-.small {
-  width: 48px;
-  height: 48px;
-  object-fit: cover;
-  border-radius: 6px;
-}
-
-/* ===== Panel de carrito ===== */
-.cart-panel {
-  position: fixed;
-  right: 18px;
-  bottom: 18px;
-  background: var(--card);
-  padding: 12px;
-  border-radius: 12px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.12);
-  width: 320px;
-  max-width: 90%;
-  display: none;
-}
-
-.cart-item {
-  display: flex;
-  gap: 8px;
-  align-items: center;
-  margin-bottom: 8px;
-}
-
-/* ===== Panel de administración ===== */
-.admin-panel {
-  background: #fff;
-  border: 1px solid #e6e0d8;
-  padding: 12px;
-  border-radius: 12px;
-  margin-top: 14px;
-}
-
-.admin-row {
-  display: flex;
-  gap: 8px;
-  align-items: center;
-  margin-bottom: 8px;
-}
-
-.input {
-  padding: 8px;
-  border: 1px solid #e6e0d8;
-  border-radius: 6px;
-  flex: 1;
-}
-
-/* ===== Lista de servicios ===== */
-.service-card {
+.topbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px;
-  border-radius: 8px;
-  background: #fff;
-  border: 1px solid #f0f0f0;
 }
-
-/* ===== Blog ===== */
-.blog-list {
+.topbar nav ul {
   display: flex;
-  flex-direction: column;
-  gap: 10px;
-  margin-top: 8px;
+  gap: 15px;
+  list-style: none;
+}
+.topbar nav a {
+  color: #fff;
+  font-weight: 500;
+}
+.topbar nav a.active {
+  text-decoration: underline;
 }
 
-.blog-card {
+/* ====== Layout ====== */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+}
+
+/* ====== Cards de productos ====== */
+.card {
   background: #fff;
-  padding: 12px;
+  border-radius: 10px;
+  padding: 15px;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  transition: transform 0.2s;
+}
+.card:hover {
+  transform: scale(1.03);
+}
+.card img {
+  max-width: 100%;
   border-radius: 8px;
-  transition: transform var(--transition);
+}
+.card h3 {
+  margin: 10px 0;
 }
 
-.blog-card:hover {
-  transform: translateY(-6px);
+/* ====== Botones ====== */
+.btn {
+  background: #2d6cdf;
+  color: #fff;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.btn:hover { background: #1e4ca0; }
+.btn.small { padding: 4px 8px; font-size: 0.9rem; }
+.btn.danger { background: #d9534f; }
+.btn.danger:hover { background: #b52b27; }
+
+/* ====== Inputs ====== */
+.input {
+  padding: 6px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  flex: 1;
 }
 
-/* ===== Animaciones / transiciones para cambio de categoría ===== */
-.fade-enter {
-  opacity: 0;
-  transform: translateY(10px);
+/* ====== Admin panel ====== */
+#admin-panel {
+  display: none; /* oculto por defecto */
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 20px;
+}
+#admin-panel.show {
+  display: block;
+}
+.admin-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 12px;
 }
 
-.fade-enter-active {
-  opacity: 1;
-  transform: none;
-  transition: opacity var(--transition), transform var(--transition);
-}
-
-.fade-exit {
-  opacity: 1;
-}
-
-.fade-exit-active {
-  opacity: 0;
-  transition: opacity var(--transition);
-}
-
-/* ===== Formularios ===== */
-form input,
-form textarea,
-form button {
-  width: 100%;
+/* ====== Servicios ====== */
+.service-card {
+  background: #eef;
   padding: 10px;
   border-radius: 8px;
-  border: 1px solid #e6e0d8;
-  font-size: 1rem;
+  margin-bottom: 10px;
 }
 
-form textarea {
-  min-height: 120px;
-}
-
-/* ===== pie de página ===== */
+/* ====== Footer ====== */
 footer {
-  background: #fff;
-  padding: 18px 0;
-  border-top: 1px solid #ece8e1;
-  margin-top: 30px;
+  background: #2d6cdf;
+  color: #fff;
+  padding: 20px;
+  margin-top: 40px;
+  text-align: center;
 }
-
-.footer-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
-  gap: 12px;
-}
-
-/* ===== Responsivo ===== */
-@media (max-width: 900px) {
-  .hero {
-    grid-template-columns: 1fr;
-  }
-
-  nav ul {
-    display: none;
-  }
-
-  .admin-row {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .topbar {
-    flex-direction: column;
-    gap: 8px;
-    align-items: flex-start;
-  }
-
-  .hero-card {
-    padding: 14px;
-  }
-}
-
-/* ===== Ayudantes de accesibilidad ===== */
-.sr-only {
-  position: absolute !important;
-  height: 1px;
-  width: 1px;
-  overflow: hidden;
-  clip: rect(1px,1px,1px,1px);
-  white-space: nowrap;
+.muted {
+  color: #777;
+  font-size: 0.9rem;
 }
