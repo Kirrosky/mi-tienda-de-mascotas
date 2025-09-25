@@ -526,6 +526,7 @@ hr {
   width: 100%;
   max-height: 400px;
   object-fit: cover;
+  object-position: center center;
   border-radius: var(--radius-md);
   margin: var(--spacing-xl) 0;
 }
