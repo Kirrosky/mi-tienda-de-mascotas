@@ -1,16 +1,111 @@
 <!doctype html>
 <html lang="es">
 <head>
-  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Guía - PetStore</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Blog - Detalle | PetStore</title>
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="images/equipo.png">
+  <!-- CSS -->
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-  <!-- include same header markup as other pages -->
-  <!-- ...header... -->
-  <main class="container">
-    <div id="blog-detail"></div>
+  <!-- HEADER -->
+  <header role="banner">
+    <div class="container topbar">
+      <div class="brand">
+        <div class="logo">PS</div>
+        <div>
+          <div style="font-weight:700">PetStore</div>
+          <div class="muted" style="font-size:0.9rem">Tu tienda de mascotas</div>
+        </div>
+      </div>
+      <nav role="navigation">
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="products.html">Productos</a></li>
+          <li><a href="services.html">Servicios</a></li>
+          <li><a href="about.html">Sobre nosotros</a></li>
+          <li><a href="contact.html">Contacto</a></li>
+          <li><a href="blog.html" class="active">Blog</a></li>
+        </ul>
+      </nav>
+      <div style="display:flex;gap:10px;align-items:center">
+        <button id="toggle-cart" class="link-like">Carrito (0)</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN -->
+  <main class="container blog-detail">
+    <article class="blog-post">
+      <h1>Cómo cuidar la alimentación de tu perro</h1>
+      <p class="muted">Publicado el 25 de septiembre de 2025 por <strong>Equipo PetStore</strong></p>
+      <img src="images/blog-perro.jpg" alt="Perro comiendo saludable" class="hero-image">
+
+      <p>
+        La alimentación es un pilar fundamental en la salud de nuestras mascotas. 
+        Proporcionar una dieta equilibrada puede prevenir enfermedades, mejorar la energía 
+        y garantizar una vida más larga y feliz para tu perro.
+      </p>
+
+      <h2>1. Pienso balanceado</h2>
+      <p>
+        Asegúrate de elegir alimentos con un alto contenido de proteína animal y bajos en 
+        conservantes artificiales.
+      </p>
+
+      <h2>2. Agua fresca siempre</h2>
+      <p>
+        El agua limpia y fresca debe estar disponible en todo momento. Mantener hidratada 
+        a tu mascota es tan importante como su comida.
+      </p>
+
+      <h2>3. Evita estos alimentos</h2>
+      <ul>
+        <li>Chocolate</li>
+        <li>Cebolla y ajo</li>
+        <li>Uvas y pasas</li>
+        <li>Comida chatarra</li>
+      </ul>
+
+      <p>
+        Recuerda: una buena alimentación es el mejor regalo que puedes darle a tu mascota. 🐶
+      </p>
+    </article>
+
+    <!-- SIDEBAR -->
+    <aside class="blog-sidebar">
+      <h3>Últimos artículos</h3>
+      <ul>
+        <li><a href="blog-detail.html">5 juegos para entretener a tu gato</a></li>
+        <li><a href="blog-detail.html">Cómo bañar a tu cachorro sin estrés</a></li>
+        <li><a href="blog-detail.html">Los mejores snacks saludables para perros</a></li>
+      </ul>
+
+      <h3>Categorías</h3>
+      <ul>
+        <li><a href="blog.html">Alimentación</a></li>
+        <li><a href="blog.html">Cuidado</a></li>
+        <li><a href="blog.html">Entretenimiento</a></li>
+      </ul>
+    </aside>
   </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container footer-grid">
+      <div>
+        <strong>PetStore</strong>
+        <p class="muted">Calidad y cuidado para tus mascotas.</p>
+      </div>
+      <div>
+        <p>&copy; 2025 PetStore. Todos los derechos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JS -->
   <script src="js/app.js"></script>
 </body>
 </html>
