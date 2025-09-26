@@ -40,6 +40,7 @@ let storeName = localStorage.getItem("storeName") || "PetStore";
 // =======================
 // RENDER FUNCIONES
 // =======================
+// Modify renderProducts function to include admin-only class
 function renderProducts() {
   const grid = document.getElementById("products-grid");
   if (!grid) return;
@@ -52,9 +53,9 @@ function renderProducts() {
       <h3>${p.title}</h3>
       <p><strong>$${p.price.toLocaleString()}</strong></p>
       <small class="muted">${p.category}</small>
-      <button class="btn" onclick="addToCart(${p.id})">Añadir al carrito</button>
-      <button class="link-like" onclick="editProduct(${p.id})">✏️ Editar</button>
-      <button class="link-like" onclick="deleteProduct(${p.id})">🗑️ Eliminar</button>
+      <button class="btn" onclick="addToCart(${p.id})">Add to Cart</button>
+      <button class="link-like admin-only" onclick="editProduct(${p.id})" style="display: none;">✏️ Editar</button>
+      <button class="link-like admin-only" onclick="deleteProduct(${p.id})" style="display: none;">🗑️ Eliminar</button>
     `;
     grid.appendChild(card);
   });
@@ -194,7 +195,62 @@ function enableStoreRename() {
     renderStoreName();
   }
 }
+// =======================
+// ADMIN MODE (Alt+A)
+// =======================
 
+// Admin mode toggle
+let adminMode = false;
+
+// Listen for Alt+A key combination
+document.addEventListener('keydown', function(e) {
+  if (e.altKey && e.key === 'a') {
+    e.preventDefault();
+    adminMode = !adminMode;
+    toggleAdminElements();
+    
+    // Show notification
+    const notification = adminMode ? 'Admin Mode Activated' : 'Admin Mode Deactivated';
+    showNotification(notification);
+  }
+});
+
+// Toggle admin elements visibility
+function toggleAdminElements() {
+  const adminElements = document.querySelectorAll('.admin-only');
+  adminElements.forEach(element => {
+    if (adminMode) {
+      element.style.display = 'inline-block';
+    } else {
+      element.style.display = 'none';
+    }
+  });
+  
+  // Toggle admin panel
+  const adminPanel = document.getElementById('admin-panel');
+  if (adminPanel) {
+    adminPanel.style.display = adminMode ? 'block' : 'none';
+  }
+}
+
+// Show notification function
+function showNotification(message) {
+  const notification = document.createElement('div');
+  notification.className = 'admin-notification';
+  notification.textContent = message;
+  document.body.appendChild(notification);
+  
+  setTimeout(() => {
+    notification.classList.add('show');
+  }, 10);
+  
+  setTimeout(() => {
+    notification.classList.remove('show');
+    setTimeout(() => {
+      document.body.removeChild(notification);
+    }, 300);
+  }, 2000);
+}
 // =======================
 // INIT
 // =======================
